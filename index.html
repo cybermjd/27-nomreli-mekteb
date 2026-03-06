@@ -2,1367 +2,534 @@
 <html lang="az">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Məktəb №27 — Bakı</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>27 Nömrəli Tam Orta Məktəb — Bakı</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Mulish:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
-      --dark: #0c0f1a;
-      --dark2: #131726;
-      --amber: #f0a500;
-      --amber-pale: rgba(240, 165, 0, .1);
-      --light: #faf9f6;
-      --paper: #f2f0eb;
-      --ink: #1a1a2e;
-      --mid: #6b6880;
-      --bl: #e5e2da;
-      --bd: rgba(255, 255, 255, .08);
+      --navy: #0a1628;
+      --blue: #1a3a6e;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #f8f4ec;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --light-bg: #f1eeea;
     }
 
-    *,
-    *::before,
-    *::after {
+    * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--light);
-      color: var(--ink);
+      font-family: 'Mulish', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
       overflow-x: hidden;
-      cursor: none
     }
 
-    /* ─── CUSTOM CURSOR ─── */
-    #cur-dot {
-      position: fixed;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #f0a500;
-      box-shadow: 0 0 8px 3px rgba(240, 165, 0, .9), 0 0 20px 6px rgba(240, 165, 0, .45);
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      transition: transform .1s, width .3s, height .3s;
-    }
-
-    #cur-ring {
-      position: fixed;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid rgba(240, 165, 0, .5);
-      pointer-events: none;
-      z-index: 99998;
-      transform: translate(-50%, -50%);
-      transition: width .3s, height .3s, border-color .3s;
-    }
-
-    /* ─── LOADER ─── */
-    #loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: var(--dark);
-      display: grid;
-      place-items: center;
-      transition: opacity .6s, visibility .6s;
-    }
-
-    #loader.out {
-      opacity: 0;
-      visibility: hidden
-    }
-
-    .ld-inner {
-      text-align: center
-    }
-
-    .ld-ring {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 2px solid rgba(240, 165, 0, .15);
-      border-top-color: var(--amber);
-      animation: spin 1s linear infinite;
-      margin: 0 auto 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .ld-ring span {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-size: 2rem;
-      color: #fff;
-      letter-spacing: -.03em
-    }
-
-    .ld-label {
-      font-size: .65rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .25)
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg)
-      }
-    }
-
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
+      width: 100%;
+      z-index: 100;
+      background: rgba(10, 22, 40, 0.97);
+      backdrop-filter: blur(10px);
+      padding: 0 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.6rem 5rem;
-      transition: all .4s;
+      height: 68px;
+      border-bottom: 2px solid var(--gold);
     }
 
-    nav.on {
-      background: rgba(12, 15, 26, .9);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--bd);
-      padding: 1.1rem 5rem;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
     }
 
-    .nl {
-      font-family: 'Fraunces', serif;
+    .nav-logo .badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
       font-weight: 900;
-      font-size: 1.5rem;
-      color: #fff;
-      letter-spacing: -.03em;
+      font-size: 1.15rem;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .nav-logo span {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .nav-links {
       display: flex;
-      align-items: baseline;
-      gap: .3rem;
+      gap: 2rem;
+      list-style: none;
     }
 
-    .nl em {
-      color: var(--amber);
-      font-style: normal;
-      font-size: .7em
-    }
-
-    .nlinks {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none
-    }
-
-    .nlinks a {
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .45);
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
-      transition: color .3s;
-      position: relative;
-      padding-bottom: 3px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
     }
 
-    .nlinks a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--amber);
-      transition: width .3s ease;
+    .nav-links a:hover {
+      color: var(--gold);
     }
 
-    .nlinks a:hover {
-      color: #fff
-    }
-
-    .nlinks a:hover::after {
-      width: 100%
-    }
-
-    /* ─── HERO ─── */
-    /* Full viewport split: left = big type, right = inset card */
+    /* HERO */
     .hero {
       min-height: 100vh;
-      background: var(--dark);
-      display: grid;
-      grid-template-columns: 55% 45%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1e4d8c 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 2rem 4rem;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-glow {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 60% 70% at -5% 50%, rgba(240, 165, 0, .13) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 40% at 105% 10%, rgba(99, 102, 241, .1) 0%, transparent 50%);
-    }
-
-    /* dot matrix */
-    .hero-dots {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255, 255, 255, .06) 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, .5) 30%, transparent 70%);
-    }
-
-    /* Left */
-    .hl {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 9rem 4rem 6rem 5rem;
-      position: relative;
-      z-index: 1;
-      border-right: 1px solid var(--bd);
-    }
-
-    .hl-tag {
-      font-size: .62rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: rgba(240, 165, 0, .7);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      opacity: 0;
-      animation: up .5s 1.5s both;
-    }
-
-    .hl-tag::before {
+    .hero::before {
       content: '';
-      width: 16px;
-      height: 1px;
-      background: var(--amber)
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 30%, rgba(201, 168, 76, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
     }
 
-    .htitle {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-size: clamp(4rem, 8.5vw, 9rem);
-      line-height: .88;
-      letter-spacing: -.04em;
-      color: #fff;
-      opacity: 0;
-      animation: up .8s 1.6s both;
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
     }
 
-    .htitle .ak {
-      color: var(--amber)
+    .hero-lines::before,
+    .hero-lines::after {
+      content: '';
+      position: absolute;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 50%;
     }
 
-    .htitle .ghost {
-      display: block;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, .18);
+    .hero-lines::before {
+      width: 700px;
+      height: 700px;
+      top: -200px;
+      right: -200px;
     }
 
-    .hdesc {
-      margin-top: 2.5rem;
-      color: rgba(255, 255, 255, .38);
-      font-size: .95rem;
-      line-height: 1.85;
-      max-width: 380px;
+    .hero-lines::after {
+      width: 500px;
+      height: 500px;
+      bottom: -150px;
+      left: -150px;
+    }
+
+    .hero-year {
+      font-family: 'Mulish', sans-serif;
       font-weight: 300;
-      opacity: 0;
-      animation: up .6s 1.9s both;
-    }
-
-    .hdesc strong {
-      color: rgba(255, 255, 255, .75);
-      font-weight: 500
-    }
-
-    .hbtns {
-      display: flex;
-      gap: .8rem;
-      margin-top: 2.5rem;
-      opacity: 0;
-      animation: up .5s 2.1s both;
-    }
-
-    .ba {
-      background: var(--amber);
-      color: var(--dark);
-      border: none;
-      padding: .9rem 2.2rem;
-      border-radius: 6px;
-      font-family: 'Plus Jakarta Sans';
-      font-size: .88rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .ba:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(240, 165, 0, .4)
-    }
-
-    .bg {
-      background: rgba(255, 255, 255, .05);
-      color: rgba(255, 255, 255, .6);
-      border: 1px solid rgba(255, 255, 255, .12);
-      padding: .9rem 2rem;
-      border-radius: 6px;
-      font-family: 'Plus Jakarta Sans';
-      font-size: .88rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all .3s;
-    }
-
-    .bg:hover {
-      border-color: var(--amber);
-      color: var(--amber)
-    }
-
-    /* Right: stacked stat cards */
-    .hr {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 9rem 4rem 6rem 3rem;
-      gap: 1.2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease both;
       position: relative;
-      z-index: 1;
-      opacity: 0;
-      animation: up .8s 1.8s both;
     }
 
-    .hcard {
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid var(--bd);
-      border-radius: 10px;
-      padding: 1.8rem 2rem;
-      transition: background .3s, border-color .3s, transform .3s;
-    }
-
-    .hcard:hover {
-      background: rgba(240, 165, 0, .07);
-      border-color: rgba(240, 165, 0, .25);
-      transform: translateX(6px)
-    }
-
-    .hcard-top {
-      display: flex;
-      align-items: baseline;
-      gap: .5rem;
-      margin-bottom: .4rem
-    }
-
-    .hcard-n {
-      font-family: 'Fraunces', serif;
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
       font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      animation: fadeUp 0.8s 0.15s ease both;
+      position: relative;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      margin-top: 1.2rem;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.65);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      animation: fadeUp 0.8s 0.3s ease both;
+      position: relative;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2.5rem auto;
+      animation: fadeUp 0.8s 0.45s ease both;
+      position: relative;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 4rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.6s ease both;
+      position: relative;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
-      color: #fff;
-      letter-spacing: -.04em;
+      font-weight: 900;
+      color: var(--gold);
       line-height: 1;
     }
 
-    .hcard-n em {
-      color: var(--amber);
-      font-style: normal;
-      font-size: .5em;
-      vertical-align: super
-    }
-
-    .hcard-l {
-      font-size: .68rem;
-      letter-spacing: .14em;
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, .3)
+      margin-top: 0.4rem;
     }
 
-    .hcard-bar {
-      height: 2px;
-      background: rgba(255, 255, 255, .06);
+    .hero-cta {
+      margin-top: 3rem;
+      animation: fadeUp 0.8s 0.75s ease both;
+      position: relative;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.4rem;
+      text-decoration: none;
       border-radius: 2px;
-      margin-top: 1rem;
-      overflow: hidden
+      transition: background 0.25s, transform 0.2s;
     }
 
-    .hcard-fill {
-      height: 100%;
-      background: var(--amber);
-      border-radius: 2px;
-      width: 0;
-      transition: width 1.2s cubic-bezier(.4, 0, .2, 1)
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
     }
 
-    /* scroll indicator */
-    .hscroll {
+    /* SECTIONS */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--navy);
+    }
+
+    .section-line {
+      width: 50px;
+      height: 3px;
+      background: var(--gold);
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--gray);
+      line-height: 1.85;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .year-block {
+      background: var(--navy);
+      color: var(--white);
+      padding: 3rem 2.5rem;
+      position: relative;
+    }
+
+    .year-block::after {
+      content: '';
       position: absolute;
-      bottom: 2.5rem;
-      left: 5rem;
-      z-index: 1;
+      bottom: -12px;
+      right: -12px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--gold);
+      z-index: -1;
+    }
+
+    .year-big {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .year-desc {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .year-since {
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* CARDS */
+    .info-section {
+      background: var(--light-bg);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 2rem;
+      border-top: 3px solid var(--gold);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(10, 22, 40, 0.1);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--navy);
       display: flex;
       align-items: center;
-      gap: .8rem;
-      opacity: 0;
-      animation: fadeIn .5s 2.4s both;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
     }
 
-    .hsc-line {
-      width: 40px;
-      height: 1px;
-      background: var(--amber);
-      animation: pulse 1.8s 2.5s ease-in-out infinite
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
 
-    @keyframes pulse {
+    .card p {
+      color: var(--gray);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .card a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      color: var(--gold);
+    }
+
+    /* MAP */
+    .map-section {
+      background: var(--navy);
+      padding: 6rem 2rem;
+    }
+
+    .map-section .section-title {
+      color: var(--white);
+    }
+
+    .map-section .section-label {
+      color: var(--gold-light);
+    }
+
+    .map-wrapper {
+      margin-top: 2.5rem;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      display: block;
+    }
+
+    /* SOCIAL */
+    .social-section {
+      background: var(--cream);
+    }
+
+    .social-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.8rem;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.25s, transform 0.2s;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .social-btn:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .social-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060e1c;
+      color: rgba(255, 255, 255, 0.45);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      border-top: 2px solid var(--gold);
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
 
       0%,
       100% {
-        opacity: .3;
-        transform: scaleX(.8)
+        transform: translateX(-50%) translateY(0);
       }
 
       50% {
-        opacity: 1;
-        transform: scaleX(1)
+        transform: translateX(-50%) translateY(8px);
       }
     }
 
-    .hsc-txt {
-      font-size: .6rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .25)
-    }
-
-    @keyframes up {
-      from {
-        opacity: 0;
-        transform: translateY(24px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1
-      }
-    }
-
-    /* ─── MARQUEE ─── */
-    .mq {
-      background: var(--amber);
-      overflow: hidden;
-      padding: .9rem 0
-    }
-
-    .mq-t {
-      display: flex;
-      white-space: nowrap;
-      animation: mq 22s linear infinite;
-    }
-
-    .mq-i {
-      font-family: 'Fraunces', serif;
-      font-weight: 700;
-      font-style: italic;
-      font-size: .95rem;
-      padding: 0 2.5rem;
-      color: var(--dark);
-      flex-shrink: 0;
-    }
-
-    .mq-d {
-      color: rgba(12, 15, 26, .35)
-    }
-
-    @keyframes mq {
-      from {
-        transform: translateX(0)
-      }
-
-      to {
-        transform: translateX(-50%)
-      }
-    }
-
-    /* ─── SECTION ─── */
-    .sec {
-      padding: 8rem 5rem
-    }
-
-    .sec-p {
-      background: var(--paper)
-    }
-
-    .sh {
-      margin-bottom: 4rem
-    }
-
-    .sey {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      margin-bottom: 1rem;
-    }
-
-    .sey span {
-      font-size: .62rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--amber);
-      font-weight: 600
-    }
-
-    .sey-ln {
-      width: 24px;
-      height: 1.5px;
-      background: var(--amber)
-    }
-
-    .st {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-size: clamp(2.6rem, 5vw, 4.5rem);
-      letter-spacing: -.04em;
-      line-height: .92;
-      color: var(--ink);
-    }
-
-    .st em {
-      color: var(--amber);
-      font-style: italic
-    }
-
-    .sd {
-      color: var(--mid);
-      font-size: .92rem;
-      line-height: 1.85;
-      max-width: 500px;
-      font-weight: 300;
-      margin-top: .8rem
-    }
-
-    /* ─── ABOUT ─── */
-    /* Horizontal band layout */
-    .about-band {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 0;
-      border: 1px solid var(--bl);
-      margin-top: 3.5rem;
-    }
-
-    .ab-left {
-      background: var(--ink);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 3rem 2.5rem;
-    }
-
-    .ab-big {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-style: italic;
-      font-size: 7rem;
-      color: var(--amber);
-      line-height: .85;
-      letter-spacing: -.04em;
-    }
-
-    .ab-yr {
-      font-size: .65rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .3);
-      margin-top: 1rem
-    }
-
-    .ab-stats {
-      display: flex;
-      flex-direction: column;
-      gap: .8rem
-    }
-
-    .ab-stat {}
-
-    .ab-stat-n {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-size: 2rem;
-      color: #fff;
-      line-height: 1
-    }
-
-    .ab-stat-n em {
-      color: var(--amber);
-      font-style: normal;
-      font-size: .5em
-    }
-
-    .ab-stat-l {
-      font-size: .6rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .3)
-    }
-
-    .ab-right {
-      padding: 3rem 3.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center
-    }
-
-    .ab-right p {
-      color: var(--mid);
-      font-size: .95rem;
-      line-height: 1.85;
-      margin-bottom: 1.2rem;
-      font-weight: 300
-    }
-
-    .ab-quote {
-      border-left: 3px solid var(--amber);
-      padding: 1.2rem 1.5rem;
-      margin: 1.5rem 0;
-      background: var(--amber-pale);
-    }
-
-    .ab-quote p {
-      font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--ink);
-      line-height: 1.6;
-      margin: 0
-    }
-
-    .ab-tags {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem
-    }
-
-    .tag {
-      background: #fff;
-      border: 1px solid var(--bl);
-      padding: .35rem .9rem;
-      border-radius: 100px;
-      font-size: .7rem;
-      font-weight: 500;
-      color: var(--mid);
-      transition: all .25s;
-    }
-
-    .tag:hover {
-      background: var(--amber-pale);
-      border-color: var(--amber);
-      color: var(--amber)
-    }
-
-    /* ─── PROGRAMS ─── */
-    /* 2-column card grid */
-    .prog-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--bl);
-      margin-top: 3.5rem;
-    }
-
-    .pg {
-      background: var(--light);
-      padding: 2.5rem;
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-      transition: background .3s;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pg::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .4s;
-    }
-
-    .pg:hover {
-      background: #fff
-    }
-
-    .pg:hover::before {
-      transform: scaleX(1)
-    }
-
-    .pg-idx {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-style: italic;
-      font-size: 3rem;
-      color: var(--bl);
-      line-height: 1;
-      flex-shrink: 0;
-      transition: color .3s;
-    }
-
-    .pg:hover .pg-idx {
-      color: var(--amber)
-    }
-
-    .pg-body {}
-
-    .pg-icon {
-      font-size: 1.6rem;
-      margin-bottom: .6rem;
-      display: block
-    }
-
-    .pg-name {
-      font-family: 'Fraunces', serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--ink);
-      letter-spacing: -.02em;
-      margin-bottom: .4rem
-    }
-
-    .pg:hover .pg-name {
-      color: var(--amber)
-    }
-
-    .pg-desc {
-      font-size: .8rem;
-      color: var(--mid);
-      line-height: 1.65;
-      font-weight: 300
-    }
-
-    /* ─── NEWS ─── */
-    /* Asymmetric: big feature left, 3 small stack right */
-    .news-layout {
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
-
-    .nf {
-      background: #fff;
-      border: 1px solid var(--bl);
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: box-shadow .3s;
-      overflow: hidden;
-    }
-
-    .nf:hover {
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .1)
-    }
-
-    .nf-thumb {
-      height: 280px;
-      background: var(--paper);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 6rem;
-      position: relative;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .nf-thumb::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(26, 26, 46, .08), transparent 50%);
-    }
-
-    .nf-body {
-      padding: 2rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column
-    }
-
-    .nf-cat {
-      display: inline-block;
-      background: var(--amber);
-      color: var(--dark);
-      font-size: .58rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: .18rem .6rem;
-      margin-bottom: .8rem;
-    }
-
-    .nf-date {
-      font-size: .68rem;
-      color: var(--mid);
-      margin-bottom: .5rem
-    }
-
-    .nf-title {
-      font-family: 'Fraunces', serif;
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: var(--ink);
-      line-height: 1.2;
-      letter-spacing: -.02em
-    }
-
-    .nf-desc {
-      font-size: .82rem;
-      color: var(--mid);
-      line-height: 1.65;
-      margin-top: .7rem;
-      font-weight: 300
-    }
-
-    .nf-link {
-      margin-top: auto;
-      padding-top: 1.2rem;
-      font-size: .72rem;
-      font-weight: 600;
-      color: var(--amber);
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-      transition: gap .3s;
-    }
-
-    .nf:hover .nf-link {
-      gap: .8rem
-    }
-
-    .ns-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem
-    }
-
-    .ns {
-      background: #fff;
-      border: 1px solid var(--bl);
-      padding: 1.5rem;
-      flex: 1;
-      cursor: pointer;
-      transition: border-color .3s, transform .3s;
-    }
-
-    .ns:hover {
-      border-color: var(--amber);
-      transform: translateX(-4px)
-    }
-
-    .ns-top {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      margin-bottom: .8rem
-    }
-
-    .ns-icon {
-      font-size: 1.4rem
-    }
-
-    .ns-date {
-      font-size: .65rem;
-      color: var(--mid);
-      letter-spacing: .08em
-    }
-
-    .ns-title {
-      font-family: 'Fraunces', serif;
-      font-weight: 700;
-      font-size: .95rem;
-      color: var(--ink);
-      line-height: 1.3;
-      letter-spacing: -.01em
-    }
-
-    .ns-more {
-      font-size: .68rem;
-      font-weight: 600;
-      color: var(--amber);
-      margin-top: .6rem;
-      letter-spacing: .06em
-    }
-
-    /* ─── TEACHERS ─── */
-    /* Horizontal scroll cards on desktop, stacked mobile */
-    .tc-wrap {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid var(--bl);
-      margin-top: 3.5rem;
-      background: var(--bl);
-    }
-
-    .tcard {
-      background: var(--light);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: background .3s;
-      cursor: pointer;
-    }
-
-    .tcard::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .4s;
-    }
-
-    .tcard:hover {
-      background: #fff
-    }
-
-    .tcard:hover::after {
-      transform: scaleX(1)
-    }
-
-    .ta {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: var(--paper);
-      margin: 0 auto 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      border: 2px solid var(--bl);
-      transition: border-color .3s;
-    }
-
-    .tcard:hover .ta {
-      border-color: var(--amber)
-    }
-
-    .tn {
-      font-family: 'Fraunces', serif;
-      font-weight: 700;
-      font-size: .95rem;
-      color: var(--ink);
-      margin-bottom: .3rem
-    }
-
-    .ts {
-      font-size: .75rem;
-      color: var(--mid);
-      margin-bottom: .8rem
-    }
-
-    .tb {
-      display: inline-block;
-      background: var(--paper);
-      border: 1px solid var(--bl);
-      font-size: .6rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .2rem .6rem;
-      color: var(--mid);
-      transition: all .3s;
-    }
-
-    .tcard:hover .tb {
-      background: var(--amber-pale);
-      border-color: var(--amber);
-      color: var(--amber)
-    }
-
-    /* ─── CONTACT + FOOTER ─── */
-    .cf-wrap {
-      background: var(--dark);
-      position: relative;
-      overflow: hidden
-    }
-
-    .cf-glow {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 55% 60% at 5% 0%, rgba(240, 165, 0, .12) 0%, transparent 55%),
-        radial-gradient(ellipse 45% 45% at 95% 100%, rgba(99, 102, 241, .08) 0%, transparent 50%);
-    }
-
-    .cf-topline {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--amber) 35%, rgba(240, 165, 0, .3) 65%, transparent);
-    }
-
-    /* Two-pane layout */
-    .cf-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--bd);
-    }
-
-    .cf-info {
-      padding: 6rem 5rem;
-      border-right: 1px solid var(--bd);
-    }
-
-    .cf-bigtitle {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      letter-spacing: -.04em;
-      line-height: .9;
-      color: #fff;
-      margin-bottom: 3rem;
-    }
-
-    .cf-bigtitle span {
-      color: var(--amber)
-    }
-
-    .cf-bigtitle small {
-      display: block;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, .15);
-      color: transparent;
-      font-size: .8em;
-    }
-
-    .citem {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
-      align-items: flex-start
-    }
-
-    .citem-ic {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      background: rgba(240, 165, 0, .09);
-      border: 1px solid rgba(240, 165, 0, .18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .9rem;
-    }
-
-    .citem-l {
-      font-size: .58rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: .25rem
-    }
-
-    .citem-v {
-      font-size: .88rem;
-      color: rgba(255, 255, 255, .4);
-      line-height: 1.65
-    }
-
-    .cf-soc {
-      display: flex;
-      gap: .6rem;
-      margin-top: 2.5rem
-    }
-
-    .csoc {
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .09);
-      color: rgba(255, 255, 255, .3);
-      font-size: .62rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: .5rem 1.1rem;
-      cursor: pointer;
-      transition: all .3s;
-      font-family: 'Plus Jakarta Sans';
-    }
-
-    .csoc:hover {
-      background: rgba(240, 165, 0, .1);
-      border-color: var(--amber);
-      color: var(--amber)
-    }
-
-    /* Form side */
-    .cf-form {
-      padding: 6rem 5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .cf-form-lbl {
-      font-family: 'Fraunces', serif;
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #fff;
-      letter-spacing: -.02em;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .cf-form-lbl::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(255, 255, 255, .07)
-    }
-
-    .form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem
-    }
-
-    .frow {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem
-    }
-
-    .fg {
-      display: flex;
-      flex-direction: column;
-      gap: .4rem
-    }
-
-    .fg label {
-      font-size: .58rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .28);
-      font-weight: 500
-    }
-
-    .fg input,
-    .fg select,
-    .fg textarea {
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .08);
-      padding: .8rem 1rem;
-      font-family: 'Plus Jakarta Sans';
-      font-size: .88rem;
-      color: #fff;
-      outline: none;
-      resize: none;
-      transition: border-color .3s, background .3s;
-    }
-
-    .fg input:focus,
-    .fg select:focus,
-    .fg textarea:focus {
-      border-color: var(--amber);
-      background: rgba(240, 165, 0, .05);
-    }
-
-    .fg input::placeholder,
-    .fg textarea::placeholder {
-      color: rgba(255, 255, 255, .18)
-    }
-
-    .fg select option {
-      background: var(--dark2);
-      color: #fff
-    }
-
-    textarea {
-      height: 100px
-    }
-
-    .fsub {
-      background: var(--amber);
-      color: var(--dark);
-      border: none;
-      padding: 1rem;
-      font-family: 'Plus Jakarta Sans';
-      font-size: .88rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .fsub:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(240, 165, 0, .4)
-    }
-
-    /* Footer bar */
-    .cf-foot {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.5rem 5rem;
-    }
-
-    .flogo {
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, .5);
-      letter-spacing: -.02em
-    }
-
-    .flogo em {
-      color: var(--amber);
-      font-style: normal
-    }
-
-    .fcopy {
-      font-size: .65rem;
-      color: rgba(255, 255, 255, .18);
-      letter-spacing: .04em
-    }
-
-    .flinks {
-      display: flex;
-      gap: 2rem
-    }
-
-    .flinks a {
-      font-size: .65rem;
-      color: rgba(255, 255, 255, .18);
-      text-decoration: none;
-      letter-spacing: .06em;
-      transition: color .3s
-    }
-
-    .flinks a:hover {
-      color: var(--amber)
-    }
-
-    /* ─── REVEAL ─── */
-    .rv {
+    .reveal {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity .7s, transform .7s
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .rv.show {
+    .reveal.visible {
       opacity: 1;
-      transform: translateY(0)
+      transform: none;
     }
 
-    /* ─── MOBILE ─── */
-    @media(max-width:960px) {
-      nav {
-        padding: 1rem 1.5rem
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
       }
 
-      nav.on {
-        padding: .9rem 1.5rem
+      .nav-links {
+        display: none;
       }
 
-      .nlinks {
-        display: none
-      }
-
-      .hero {
-        grid-template-columns: 1fr
-      }
-
-      .hr {
-        display: none
-      }
-
-      .hl {
-        padding: 9rem 1.5rem 5rem
-      }
-
-      .sec {
-        padding: 5rem 1.5rem
-      }
-
-      .about-band {
-        grid-template-columns: 1fr
-      }
-
-      .prog-grid {
-        grid-template-columns: 1fr
-      }
-
-      .news-layout {
-        grid-template-columns: 1fr
-      }
-
-      .tc-wrap {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .cf-grid {
-        grid-template-columns: 1fr
-      }
-
-      .cf-info {
-        padding: 4rem 1.5rem;
-        border-right: none;
-        border-bottom: 1px solid var(--bd)
-      }
-
-      .cf-form {
-        padding: 3rem 1.5rem
-      }
-
-      .cf-foot {
-        flex-direction: column;
-        gap: 1.2rem;
-        text-align: center;
-        padding: 1.5rem
+      .hero-stats {
+        gap: 2rem;
       }
     }
   </style>
@@ -1370,476 +537,163 @@
 
 <body>
 
-  <!-- CURSOR -->
-  <div id="cur-dot"></div>
-  <div id="cur-ring"></div>
-
-  <!-- LOADER -->
-  <div id="loader">
-    <div class="ld-inner">
-      <div class="ld-ring"><span>27</span></div>
-      <div class="ld-label">Yüklənir</div>
+  <nav>
+    <div class="nav-logo">
+      <div class="badge">27</div>
+      <span>Tam Orta<br>Məktəb</span>
     </div>
-  </div>
-
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nl">Məktəb <em>№27</em></div>
-    <ul class="nlinks">
+    <ul class="nav-links">
       <li><a href="#haqqinda">Haqqında</a></li>
-      <li><a href="#proqramlar">Proqramlar</a></li>
-      <li><a href="#xeberler">Xəbərlər</a></li>
-      <li><a href="#muellimler">Müəllimlər</a></li>
       <li><a href="#elaqe">Əlaqə</a></li>
+      <li><a href="#xerite">Xəritə</a></li>
+      <li><a href="#sosial">Sosial</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-dots"></div>
-
-    <!-- Left -->
-    <div class="hl">
-      <div class="hl-tag">Bakı · Azərbaycan · 1959</div>
-      <h1 class="htitle">
-        Gələcəyin<br>
-        <span class="ak">Məktəbi</span><br>
-        <span class="ghost">№27</span>
-      </h1>
-      <p class="hdesc">
-        <strong>27 nömrəli məktəb</strong> — 65 ildən artıq tarixi, 108 peşəkar müəllimi
-        və müasir proqramları ilə Bakının ən nüfuzlu tədris ocağı.
-      </p>
-      <div class="hbtns">
-        <button class="ba">Kəşfet →</button>
-        <button class="bg">Virtual Tur</button>
+    <div class="hero-lines"></div>
+    <p class="hero-year">Bakı, Xətai Rayonu &middot; 1959-cu ildən</p>
+    <h1><span>27</span> Nömrəli<br>Tam Orta Məktəb</h1>
+    <p class="hero-sub">Keyfiyyətli təhsil, güclü gələcək</p>
+    <div class="hero-divider"></div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">108</div>
+        <div class="stat-label">Müəllim</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2000+</div>
+        <div class="stat-label">Şaqird</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">65+</div>
+        <div class="stat-label">İl Təcrübə</div>
       </div>
     </div>
-
-    <!-- Right: stat cards -->
-    <div class="hr">
-      <div class="hcard">
-        <div class="hcard-top">
-          <div class="hcard-n" id="c1">0<em>+</em></div>
-        </div>
-        <div class="hcard-l">Şagird</div>
-        <div class="hcard-bar">
-          <div class="hcard-fill" style="width:90%"></div>
-        </div>
-      </div>
-      <div class="hcard">
-        <div class="hcard-top">
-          <div class="hcard-n" id="c2">0</div>
-        </div>
-        <div class="hcard-l">Peşəkar Müəllim</div>
-        <div class="hcard-bar">
-          <div class="hcard-fill" style="width:75%"></div>
-        </div>
-      </div>
-      <div class="hcard">
-        <div class="hcard-top">
-          <div class="hcard-n" id="c3">0<em>+</em></div>
-        </div>
-        <div class="hcard-l">İl Tarixi</div>
-        <div class="hcard-bar">
-          <div class="hcard-fill" style="width:60%"></div>
-        </div>
-      </div>
-      <div class="hcard">
-        <div class="hcard-top">
-          <div class="hcard-n" id="c4">0<em>%</em></div>
-        </div>
-        <div class="hcard-l">Məzun Nailiyyəti</div>
-        <div class="hcard-bar">
-          <div class="hcard-fill" style="width:98%"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hscroll">
-      <div class="hsc-line"></div>
-      <div class="hsc-txt">Aşağı aç</div>
+    <div class="hero-cta">
+      <a href="#haqqinda" class="btn-gold">Ətraflı Tanış Ol</a>
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="mq" id="mqWrap">
-    <div class="mq-t">
-      <span class="mq-i">Bilik <span class="mq-d">·</span></span>
-      <span class="mq-i">Peşəkarlıq <span class="mq-d">·</span></span>
-      <span class="mq-i">Nailiyyət <span class="mq-d">·</span></span>
-      <span class="mq-i">Gələcək <span class="mq-d">·</span></span>
-      <span class="mq-i">İnkişaf <span class="mq-d">·</span></span>
-      <span class="mq-i">Olimpiada <span class="mq-d">·</span></span>
-      <span class="mq-i">Texnologiya <span class="mq-d">·</span></span>
-      <span class="mq-i">Sənət <span class="mq-d">·</span></span>
-      <span class="mq-i">Bilik <span class="mq-d">·</span></span>
-      <span class="mq-i">Peşəkarlıq <span class="mq-d">·</span></span>
-      <span class="mq-i">Nailiyyət <span class="mq-d">·</span></span>
-      <span class="mq-i">Gələcək <span class="mq-d">·</span></span>
-      <span class="mq-i">İnkişaf <span class="mq-d">·</span></span>
-      <span class="mq-i">Olimpiada <span class="mq-d">·</span></span>
-      <span class="mq-i">Texnologiya <span class="mq-d">·</span></span>
-      <span class="mq-i">Sənət <span class="mq-d">·</span></span>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="sec" id="haqqinda">
-    <div class="sh rv">
-      <div class="sey"><span>01 — Haqqımızda</span>
-        <div class="sey-ln"></div>
-      </div>
-      <h2 class="st">Bilik<br><em>Gücdür</em></h2>
-    </div>
-    <div class="about-band rv">
-      <div class="ab-left">
-        <div class="ab-big">27</div>
-        <div class="ab-yr">Bakı məktəbi · 1959</div>
-        <div class="ab-stats">
-          <div class="ab-stat">
-            <div class="ab-stat-n">108</div>
-            <div class="ab-stat-l">Müəllim</div>
-          </div>
-          <div class="ab-stat">
-            <div class="ab-stat-n">1200<em>+</em></div>
-            <div class="ab-stat-l">Şagird</div>
-          </div>
-          <div class="ab-stat">
-            <div class="ab-stat-n">30<em>+</em></div>
-            <div class="ab-stat-l">Klub & Dərnək</div>
-          </div>
+  <section class="about" id="haqqinda">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="section-label">Haqqımızda</p>
+          <h2 class="section-title">Güclü Ənənə,<br>Parlaq Gələcək</h2>
+          <div class="section-line"></div>
+          <p>
+            27 Nömrəli Tam Orta Məktəb 1959-cu ildən etibarən Bakının Xətai rayonunda fəaliyyət göstərərək minlərlə
+            məzun yetişdirmiş, şəhərin ən köklü təhsil ocaqlarından birinə çevrilmişdir.
+          </p>
+          <p>
+            108 peşəkar müəllim heyəti ilə 2000-dən çox şaqirdə müasir, keyfiyyətli və şəxsiyyətyönümlü təhsil verilir.
+            Məktəbimiz akademik nailiyyətlər, mədəni tədbirlər və idman sahəsində daim öndə gəlir.
+          </p>
+          <p>
+            Yarım əsri aşan tariximiz boyunca cəmiyyətimizə töhfə verən həkim, mühəndis, müəllim və sənətkar nəsilləri
+            hazırlamışıq.
+          </p>
         </div>
-      </div>
-      <div class="ab-right">
-        <p>27 nömrəli məktəb 1959-cu ildən bəri Bakının intellektual mərkəzlərindən biridir. On illər boyunca minlərlə
-          məzun yetişdirmiş, onları həyata hazırlamışıq.</p>
-        <p>108 nəfərlik güclü müəllim heyəti, müasir infrastruktur və şagird mərkəzli yanaşma ilə biz hər uşağın unikal
-          potensialını açmağa çalışırıq.</p>
-        <div class="ab-quote">
-          <p>"Hər uşaq bir işıqdır — vəzifəmiz onu alovlandırmaqdır."</p>
-        </div>
-        <p>STEAM, rəqəmsal savadlılıq, olimpiada hazırlığı — gələcəyin bacarıqları bu gündən burada şəkillənir.</p>
-        <div class="ab-tags">
-          <span class="tag">STEAM</span>
-          <span class="tag">Olimpiada</span>
-          <span class="tag">Top-5 Reytinq</span>
-          <span class="tag">Rəqəmsal Təhsil</span>
-          <span class="tag">30+ Klub</span>
+        <div class="reveal" style="position:relative;">
+          <div class="year-block">
+            <div class="year-big">1959</div>
+            <div class="year-since">Fəaliyyət başladı</div>
+            <div style="margin-top:1.5rem; font-size:0.95rem; color:rgba(255,255,255,0.55); line-height:1.7;">
+              65 ildən artıq davam edən böyük bir təhsil yolculuğu — hər il yeni nəsillərə ilham verən bir ocaq.
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROGRAMS -->
-  <section class="sec sec-p" id="proqramlar">
-    <div class="sh rv">
-      <div class="sey"><span>02 — Proqramlar</span>
-        <div class="sey-ln"></div>
-      </div>
-      <h2 class="st">Tədris<br><em>İstiqamətləri</em></h2>
-      <p class="sd">Hər şagirdin maraq və bacarığına uyğun geniş proqram seçkisi.</p>
-    </div>
-    <div class="prog-grid rv">
-      <div class="pg">
-        <span class="pg-idx">01</span>
-        <div class="pg-body"><span class="pg-icon">🔬</span>
-          <div class="pg-name">STEAM Təhsil</div>
-          <div class="pg-desc">Elm, texnologiya, mühəndislik, incəsənət, riyaziyyat inteqrasiyası</div>
+  <section class="info-section" id="elaqe">
+    <div class="container">
+      <p class="section-label reveal">Əlaqə &amp; Məlumat</p>
+      <h2 class="section-title reveal">Bizimlə Əlaqə<br>Saxlayın</h2>
+      <div class="section-line reveal"></div>
+      <div class="cards-grid">
+        <div class="card reveal">
+          <div class="card-icon">📞</div>
+          <h3>Telefon</h3>
+          <p><a href="tel:+994124902120">(012) 490 21 20</a></p>
         </div>
-      </div>
-      <div class="pg">
-        <span class="pg-idx">02</span>
-        <div class="pg-body"><span class="pg-icon">💻</span>
-          <div class="pg-name">Rəqəmsal Savadlılıq</div>
-          <div class="pg-desc">Proqramlaşdırma, süni intellekt əsasları, veb dizayn</div>
+        <div class="card reveal">
+          <div class="card-icon">📍</div>
+          <h3>Ünvan</h3>
+          <p>Bakı şəhəri, Xətai rayonu,<br>Y. Səfərov küçəsi 7</p>
         </div>
-      </div>
-      <div class="pg">
-        <span class="pg-idx">03</span>
-        <div class="pg-body"><span class="pg-icon">🌍</span>
-          <div class="pg-name">Xarici Dillər</div>
-          <div class="pg-desc">İngilis, rus, alman dilləri — native speaker dərslər</div>
+        <div class="card reveal">
+          <div class="card-icon">👩‍🏫</div>
+          <h3>Müəllim Heyəti</h3>
+          <p>108 peşəkar pedaqoq<br>müxtəlif fənlər üzrə</p>
         </div>
-      </div>
-      <div class="pg">
-        <span class="pg-idx">04</span>
-        <div class="pg-body"><span class="pg-icon">🏆</span>
-          <div class="pg-name">Olimpiada Hazırlığı</div>
-          <div class="pg-desc">Respublika və beynəlxalq müsabiqələr üçün intensiv hazırlıq</div>
-        </div>
-      </div>
-      <div class="pg">
-        <span class="pg-idx">05</span>
-        <div class="pg-body"><span class="pg-icon">🎨</span>
-          <div class="pg-name">Sənət & Musiqi</div>
-          <div class="pg-desc">Rəssamlıq, musiqi, teatr — yaradıcı düşüncənin inkişafı</div>
-        </div>
-      </div>
-      <div class="pg">
-        <span class="pg-idx">06</span>
-        <div class="pg-body"><span class="pg-icon">⚽</span>
-          <div class="pg-name">İdman Proqramı</div>
-          <div class="pg-desc">Futbol, basketbol, gimnastika, üzgüçülük</div>
+        <div class="card reveal">
+          <div class="card-icon">🎓</div>
+          <h3>Şaqird Sayı</h3>
+          <p>2000-dən çox şaqird<br>aktiv təhsil alır</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NEWS -->
-  <section class="sec" id="xeberler">
-    <div class="sh rv">
-      <div class="sey"><span>03 — Xəbərlər</span>
-        <div class="sey-ln"></div>
-      </div>
-      <h2 class="st">Son<br><em>Hadisələr</em></h2>
-    </div>
-    <div class="news-layout rv">
-      <div class="nf">
-        <div class="nf-thumb">🏅</div>
-        <div class="nf-body">
-          <span class="nf-cat">Uğur</span>
-          <div class="nf-date">24 Fevral 2026</div>
-          <div class="nf-title">Şagirdimiz Respublika Riyaziyyat Olimpiadasında qızıl medal qazandı</div>
-          <div class="nf-desc">10-cu sinif şagirdimiz Anar Hüseynov respublika müsabiqəsində birinci yer tutaraq
-            məktəbimizi şərəflə təmsil etdi.</div>
-          <div class="nf-link">Ətraflı oxu →</div>
-        </div>
-      </div>
-      <div class="ns-stack">
-        <div class="ns">
-          <div class="ns-top"><span class="ns-icon">🖥️</span><span class="ns-date">15 Yanvar 2026</span></div>
-          <div class="ns-title">Yeni robotika laboratoriyası açıldı</div>
-          <div class="ns-more">Oxu →</div>
-        </div>
-        <div class="ns">
-          <div class="ns-top"><span class="ns-icon">🌱</span><span class="ns-date">5 Yanvar 2026</span></div>
-          <div class="ns-title">Ekoloji layihəmiz beynəlxalq mükafat qazandı</div>
-          <div class="ns-more">Oxu →</div>
-        </div>
-        <div class="ns">
-          <div class="ns-top"><span class="ns-icon">📚</span><span class="ns-date">20 Dekabr 2025</span></div>
-          <div class="ns-title">Yeni kitabxana kompleksi rəsmi açıldı</div>
-          <div class="ns-more">Oxu →</div>
-        </div>
+  <section class="map-section" id="xerite">
+    <div class="container">
+      <p class="section-label reveal">Yerləşmə</p>
+      <h2 class="section-title reveal">Xəritədə Tapın</h2>
+      <div class="map-wrapper reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2655.4708477054965!2d49.86221462488175!3d40.37900883263693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d0386bf67e5%3A0x8caa81a918ffa2af!2zMjcgU2F5bMSxIHRhbSBvcnRhIG3JmWt0yZli!5e1!3m2!1saz!2saz!4v1772816787354!5m2!1saz!2saz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
-  <!-- TEACHERS -->
-  <section class="sec sec-p" id="muellimler">
-    <div class="sh rv">
-      <div class="sey"><span>04 — Müəllim heyəti</span>
-        <div class="sey-ln"></div>
-      </div>
-      <h2 class="st">108 Peşəkar<br><em>Müəllim</em></h2>
-      <p class="sd">Hər müəllimimiz öz sahəsinin mütəxəssisi, uşaqların isə həqiqi dostu.</p>
-    </div>
-    <div class="tc-wrap">
-      <div class="tcard rv">
-        <div class="ta">👨‍🏫</div>
-        <div class="tn">Elnur Məmmədov</div>
-        <div class="ts">Fizika müəllimi</div>
-        <span class="tb">20+ il təcrübə</span>
-      </div>
-      <div class="tcard rv">
-        <div class="ta">👩‍🏫</div>
-        <div class="tn">Günel Əliyeva</div>
-        <div class="ts">İngilis dili</div>
-        <span class="tb">IELTS 8.5</span>
-      </div>
-      <div class="tcard rv">
-        <div class="ta">👨‍💻</div>
-        <div class="tn">Kamran Rzayev</div>
-        <div class="ts">İnformatika</div>
-        <span class="tb">Google sertifikat</span>
-      </div>
-      <div class="tcard rv">
-        <div class="ta">👩‍🔬</div>
-        <div class="tn">Nigar Həsənova</div>
-        <div class="ts">Kimya & Biologiya</div>
-        <span class="tb">PhD</span>
+  <section class="social-section" id="sosial">
+    <div class="container">
+      <p class="section-label reveal">Sosial Şəbəkələr</p>
+      <h2 class="section-title reveal">Bizi İzləyin</h2>
+      <div class="section-line reveal"></div>
+      <div class="social-grid reveal">
+        <a href="https://www.facebook.com/27nomrelitamortamekteb/" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+          </svg>
+          Facebook
+        </a>
+        <a href="https://www.instagram.com/27_nomreli_tam_orta_mekteb/" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+          Instagram
+        </a>
+        <a href="https://www.youtube.com/@xtairayonu27nomrlitamortam50" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+          YouTube
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT + FOOTER -->
-  <div class="cf-wrap" id="elaqe">
-    <div class="cf-glow"></div>
-    <div class="cf-topline"></div>
+  <footer>
+    <p><strong>Desing by MERS</strong> &copy; 2026</p>
+  </footer>
 
-    <div class="cf-grid">
-      <div class="cf-info rv">
-        <div class="cf-bigtitle">
-          Bizimlə<br>
-          <span>Əlaqə</span><br>
-          <small>Saxlayın</small>
-        </div>
-        <div class="citem">
-          <div class="citem-ic">📍</div>
-          <div>
-            <div class="citem-l">Ünvan</div>
-            <div class="citem-v">Bakı, Xətai rayonu,<br>Y. Səfərov küçəsi 7</div>
-          </div>
-        </div>
-        <div class="citem">
-          <div class="citem-ic">📞</div>
-          <div>
-            <div class="citem-l">Telefon</div>
-            <div class="citem-v">(+994 12) 490-21-20<br>(+994 12) 490-20-62</div>
-          </div>
-        </div>
-        <div class="citem">
-          <div class="citem-ic">✉️</div>
-          <div>
-            <div class="citem-l">E-poçt</div>
-            <div class="citem-v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="390b0e545c524d5c5b797b58524c177c5d4c175e564f175843">[email&#160;protected]</a></div>
-          </div>
-        </div>
-        <div class="citem">
-          <div class="citem-ic">🕐</div>
-          <div>
-            <div class="citem-l">İş saatları</div>
-            <div class="citem-v">B.e — Cümə: 08:00 – 18:00<br>Şənbə: 09:00 – 14:00</div>
-          </div>
-        </div>
-        <div class="cf-soc">
-          <button class="csoc">Facebook</button>
-          <button class="csoc">Instagram</button>
-          <button class="csoc">Telegram</button>
-        </div>
-      </div>
-
-      <div class="cf-form rv">
-        <div class="cf-form-lbl">Mesaj göndər</div>
-        <div class="form">
-          <div class="frow">
-            <div class="fg"><label>Ad, Soyad</label><input type="text" placeholder="Adınızı yazın"></div>
-            <div class="fg"><label>Telefon</label><input type="text" placeholder="+994 ..."></div>
-          </div>
-          <div class="fg"><label>E-poçt</label><input type="email" placeholder="email@example.com"></div>
-          <div class="fg">
-            <label>Mövzu</label>
-            <select>
-              <option>Qeydiyyat haqqında</option>
-              <option>Dərnəklər haqqında</option>
-              <option>Olimpiada hazırlığı</option>
-              <option>Digər</option>
-            </select>
-          </div>
-          <div class="fg"><label>Mesaj</label><textarea placeholder="Sualınızı yazın..."></textarea></div>
-          <button class="fsub">Göndər →</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="cf-foot">
-      <div class="flogo">Məktəb <em>№27</em></div>
-      <div class="fcopy">© 2026 27 Nömrəli Məktəb — Bakı, Azərbaycan</div>
-      <div class="flinks">
-        <a href="#">Şəffaflıq</a>
-        <a href="#">Məxfilik</a>
-        <a href="#">Sitemap</a>
-      </div>
-    </div>
-  </div>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-    /* LOADER */
-    (function () {
-      const ld = document.getElementById('loader');
-      setTimeout(() => ld.classList.add('out'), 1200);
-    })();
-
-    /* NAV */
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('on', scrollY > 60), { passive: true });
-
-    /* SMOOTH SCROLL */
-    document.querySelectorAll('a[href^="#"]').forEach(a =>
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-      })
-    );
-
-    /* COUNTER */
-    function countUp(el, target, dur = 1500) {
-      const s = performance.now();
-      const em = el.querySelector('em');
-      const suf = em ? em.outerHTML : '';
-      (function step(n) {
-        const p = Math.min((n - s) / dur, 1);
-        el.innerHTML = Math.round((1 - Math.pow(1 - p, 3)) * target) + suf;
-        if (p < 1) requestAnimationFrame(step);
-      })(s);
-    }
-
-    let counted = false;
-    new IntersectionObserver(en => {
-      if (en[0].isIntersecting && !counted) {
-        counted = true;
-        countUp(document.getElementById('c1'), 1200);
-        countUp(document.getElementById('c2'), 108);
-        countUp(document.getElementById('c3'), 67);
-        countUp(document.getElementById('c4'), 98);
-      }
-    }, { threshold: .5 }).observe(document.querySelector('.hr'));
-
-    /* REVEAL */
-    const io = new IntersectionObserver(en => {
-      en.forEach(e => {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
         if (e.isIntersecting) {
-          const d = +(e.target.dataset.delay || 0);
-          setTimeout(() => e.target.classList.add('show'), d);
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
         }
       });
-    }, { threshold: .1 });
-
-    document.querySelectorAll('.tc-wrap').forEach(g =>
-      [...g.querySelectorAll('.rv')].forEach((el, i) => el.dataset.delay = i * 90)
-    );
-    document.querySelectorAll('.rv').forEach(el => io.observe(el));
-
-    /* MAGNETIC */
-    document.querySelectorAll('.ba,.bg,.fsub').forEach(b => {
-      b.addEventListener('mousemove', e => {
-        const r = b.getBoundingClientRect();
-        b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .18}px,${(e.clientY - r.top - r.height / 2) * .18}px)`;
-      });
-      b.addEventListener('mouseleave', () => b.style.transform = '');
-    });
-
-    /* CURSOR */
-    const dot = document.getElementById('cur-dot');
-    const ring = document.getElementById('cur-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
-    (function loop() {
-      rx += (mx - rx) * .1; ry += (my - ry) * .1;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(loop);
-    })();
-    document.querySelectorAll('a,button,.pg,.hcard,.tcard,.nf,.ns').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        dot.style.width = '18px'; dot.style.height = '18px';
-        ring.style.width = '56px'; ring.style.height = '56px';
-        ring.style.borderColor = 'rgba(240,165,0,.9)';
-      });
-      el.addEventListener('mouseleave', () => {
-        dot.style.width = '12px'; dot.style.height = '12px';
-        ring.style.width = '38px'; ring.style.height = '38px';
-        ring.style.borderColor = 'rgba(240,165,0,.5)';
-      });
-    });
-
-    /* MARQUEE pause */
-    const mq = document.querySelector('.mq-t');
-    document.getElementById('mqWrap').addEventListener('mouseenter', () => mq.style.animationPlayState = 'paused');
-    document.getElementById('mqWrap').addEventListener('mouseleave', () => mq.style.animationPlayState = 'running');
+    }, { threshold: 0.12 });
+    reveals.forEach(r => observer.observe(r));
   </script>
 </body>
 
