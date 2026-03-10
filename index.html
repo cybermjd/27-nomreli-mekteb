@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>27 Nömrəli Tam Orta Məktəb</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600;700&display=swap"
@@ -37,6 +38,7 @@
       overflow-x: hidden;
     }
 
+    /* ── NAV ── */
     #mainNav {
       position: fixed;
       top: 0;
@@ -114,7 +116,6 @@
       width: 100%;
     }
 
-    /* hamburger icon color */
     #mainNav .navbar-toggler {
       border-color: rgba(200, 168, 75, 0.5);
     }
@@ -123,7 +124,6 @@
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(200,168,75,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
-    /* mobile dropdown bg */
     @media (max-width: 991px) {
       #mainNav .navbar-collapse {
         background: rgba(10, 22, 40, 0.98);
@@ -142,6 +142,7 @@
       }
     }
 
+    /* ── HERO ── */
     .hero {
       height: 100vh;
       background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #112255 100%);
@@ -153,9 +154,35 @@
       overflow: hidden;
     }
 
+    /* Carousel as hero background */
+    .hero-carousel {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-carousel .carousel-inner,
+    .hero-carousel .carousel-item {
+      height: 100%;
+    }
+
+    .hero-carousel .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+    }
+
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+      z-index: 3;
+      width: 5%;
+    }
+
     .hero-bg {
       position: absolute;
       inset: 0;
+      z-index: 1;
       background-image:
         radial-gradient(circle at 20% 30%, rgba(200, 168, 75, 0.09) 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, rgba(200, 168, 75, 0.07) 0%, transparent 50%);
@@ -168,6 +195,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: 1;
     }
 
     .hero-content {
@@ -206,14 +234,6 @@
       text-transform: uppercase;
       margin-top: 8px;
       animation: fadeUp .9s .3s both;
-    }
-
-    .hero-divider {
-      width: 60px;
-      height: 2px;
-      background: var(--gold);
-      margin: 28px auto;
-      animation: fadeUp .9s .4s both;
     }
 
     .hero-subtitle {
@@ -257,6 +277,7 @@
       align-items: center;
       gap: 8px;
       animation: bounce 2s infinite;
+      z-index: 2;
     }
 
     .scroll-hint span {
@@ -297,6 +318,59 @@
       }
     }
 
+    /* ── CAROUSEL ── */
+    .school-carousel {
+      background: var(--navy);
+    }
+
+    .school-carousel .carousel-item img {
+      height: 500px;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+
+    .school-carousel .carousel-control-prev-icon,
+    .school-carousel .carousel-control-next-icon {
+      background-color: rgba(200, 168, 75, 0.7);
+      border-radius: 50%;
+      padding: 20px;
+      background-size: 50%;
+    }
+
+    .school-carousel .carousel-control-prev,
+    .school-carousel .carousel-control-next {
+      width: 6%;
+    }
+
+    .school-carousel .carousel-indicators [data-bs-target] {
+      background-color: var(--gold);
+    }
+
+    /* Placeholder when no image */
+    .carousel-placeholder {
+      height: 500px;
+      background: linear-gradient(135deg, var(--navy) 0%, #112255 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .carousel-placeholder svg {
+      width: 56px;
+      height: 56px;
+      opacity: 0.3;
+    }
+
+    .carousel-placeholder span {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.3);
+      text-transform: uppercase;
+    }
+
+    /* ── STATS ── */
     .stats {
       background: var(--navy);
       padding: 70px 0;
@@ -342,6 +416,7 @@
       font-weight: 700;
     }
 
+    /* ── SECTIONS ── */
     section {
       padding: 100px 0;
     }
@@ -376,6 +451,7 @@
       margin: 20px 0 36px;
     }
 
+    /* ── ABOUT ── */
     .about {
       background: var(--light-gray);
     }
@@ -476,123 +552,6 @@
       text-transform: uppercase;
     }
 
-    .contact {
-      background: var(--cream);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-
-    .contact-items {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .contact-icon {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      background: var(--navy);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .contact-info strong {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-
-    .contact-info p,
-    .contact-info a {
-      font-size: 15px;
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .contact-info a:hover {
-      color: var(--gold);
-    }
-
-    .social-section {
-      background: var(--navy);
-      padding: 70px 0;
-    }
-
-    .social-inner {
-      text-align: center;
-    }
-
-    .social-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    .social-sub {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.45);
-      letter-spacing: 1px;
-      margin-bottom: 40px;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border: 1px solid rgba(200, 168, 75, 0.3);
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 2px;
-      transition: all .3s;
-      letter-spacing: 0.5px;
-    }
-
-    .social-link:hover {
-      border-color: var(--gold);
-      background: rgba(200, 168, 75, 0.08);
-      color: var(--gold);
-    }
-
-    .social-link svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
     /* ── LEADERSHIP ── */
     .leadership {
       background: var(--cream);
@@ -655,7 +614,6 @@
       border-radius: 50%;
     }
 
-    /* First card (director) is bigger */
     .leader-card.director .leader-photo {
       width: 150px;
       height: 150px;
@@ -857,7 +815,7 @@
       line-height: 1.6;
     }
 
-    /* ── STUDENTS / CLASSES ── */
+    /* ── STUDENTS ── */
     .students {
       background: var(--cream);
     }
@@ -973,26 +931,7 @@
       font-size: 12px;
     }
 
-    @media (max-width: 768px) {
-      .teachers-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .teachers-features {
-        grid-template-columns: 1fr;
-      }
-
-      .classes-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .teachers-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
+    /* ── MAP ── */
     .map-section {
       background: var(--light-gray);
     }
@@ -1234,6 +1173,7 @@
       color: var(--gold);
     }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .footer-container {
         grid-template-columns: 1fr 1fr;
@@ -1241,18 +1181,6 @@
 
       .footer-brand {
         grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .footer-container {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
       }
     }
 
@@ -1274,10 +1202,6 @@
         gap: 40px;
       }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
       .about-badge {
         display: none;
       }
@@ -1285,12 +1209,67 @@
       .hero-num {
         font-size: 100px;
       }
+
+      .teachers-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .teachers-features {
+        grid-template-columns: 1fr;
+      }
+
+      .classes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .school-carousel .carousel-item img {
+        height: 260px;
+      }
+
+      .carousel-placeholder {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .teachers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .direktor {
+      width: 200px;
+      min-height: 20vh;
+      border-radius: 50%;
+      align-content: center;
+      background: url(img/direktor.png) center/cover;
+    }
+
+    .ayten {
+      width: 150px;
+      min-height: 20vh;
+      border-radius: 50%;
+      align-content: center;
+      background: url(img/Ayten.png) center/cover;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- NAV -->
   <nav class="navbar navbar-expand-lg" id="mainNav">
     <div class="container-fluid px-4">
       <a class="navbar-brand nav-logo" href="#">
@@ -1316,23 +1295,54 @@
     </div>
   </nav>
 
+  <!-- HERO + CAROUSEL BACKGROUND -->
   <section class="hero" id="home">
+
+    <!-- Carousel as full-screen background -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel"
+      data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/1.png" class="d-block w-100" alt="Məktəb şəkli 1">
+        </div>
+        <div class="carousel-item">
+          <img src="img/2.png" class="d-block w-100" alt="Məktəb şəkli 2">
+        </div>
+        <div class="carousel-item">
+          <img src="img/3.png" class="d-block w-100" alt="Məktəb şəkli 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Dark overlay -->
     <div class="hero-bg"></div>
+
+    <!-- Decorative rings -->
     <div class="hero-ring" style="width:700px;height:700px;"></div>
     <div class="hero-ring" style="width:1100px;height:1100px;"></div>
+
+    <!-- Content -->
     <div class="hero-content">
       <p class="hero-since">1959-cu ildən fəaliyyətdə</p>
-      <div class="hero-num"><span>#</span>27</div>
+      <div class="hero-num">27</div>
       <p class="hero-title">Nömrəli Tam Orta Məktəb</p>
-      <div class="hero-divider"></div>
       <p class="hero-subtitle">Bakı · Xətai Rayonu · Y. Səfərov küçəsi 7</p>
       <div class="hero-cta">
         <a href="#about" class="btn">Ətraflı Oxu</a>
       </div>
     </div>
-    <div class="scroll-hint"><span>Aşağı</span></div>
+
   </section>
 
+  <!-- STATS -->
   <div class="stats">
     <div class="container">
       <div class="stats-grid">
@@ -1352,6 +1362,7 @@
     </div>
   </div>
 
+  <!-- ABOUT -->
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
@@ -1378,25 +1389,19 @@
               <div style="flex:1;opacity:0.35;"></div>
             </div>
           </div>
-          <div class="about-badge">
-            <strong>65+</strong>
-            <span>il</span>
-          </div>
+          <div class="about-badge"><strong>65+</strong><span>il</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LEADERSHIP -->
+  <!-- LEADERSHIP  Director-->
   <section class="leadership" id="teachers">
     <div class="container">
       <p class="section-label">Rəhbərlik</p>
       <h2 class="section-title">Məktəb rəhbərliyi</h2>
       <div class="section-divider"></div>
-
       <div class="leadership-grid">
-
-        <!-- Director — bigger card -->
         <div class="leader-card director">
           <div class="leader-photo-wrap">
             <div class="director-crown">Direktor</div>
@@ -1405,13 +1410,12 @@
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
               </svg>
-              <span>Şəkil əlavə et</span>
+              <div class="direktor"></div>
             </div>
           </div>
-          <div class="leader-name">Ad Soyad</div>
+          <div class="leader-name">Könül Hüsenova Qabil</div>
           <div class="leader-role">Direktor</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
             <div class="leader-photo">
@@ -1419,144 +1423,107 @@
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
               </svg>
-              <span>Şəkil əlavə et</span>
+              <div class="ayten"></div>
             </div>
+          </div>
+          <div class="leader-name">Aytən Sədiyeva Mübariz</div>
+          <div class="leader-role">Təlim-tərbiyə işləri üzrə direktor müavini</div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-photo-wrap">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Direktor müavini</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Direktor müavini</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
-          </div>
-          <div class="leader-name">Ad Soyad</div>
-          <div class="leader-role">Direktor müavini</div>
-        </div>
-
-        <div class="leader-card">
-          <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Mühasib</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Psixoloq</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Kitabxanaçı</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Tibb işçisi</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Sinif rəhbəri koordinatoru</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Əmək mühafizəsi</div>
         </div>
-
         <div class="leader-card">
           <div class="leader-photo-wrap">
-            <div class="leader-photo">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="leader-photo"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="leader-name">Ad Soyad</div>
           <div class="leader-role">Təsərrüfat müdiri</div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- TEACHERS / STAFF -->
+  <!-- TEACHERS -->
   <section class="teachers" id="staff">
     <div class="container">
       <p class="section-label">Müəllim Heyəti</p>
@@ -1564,17 +1531,13 @@
       <div class="section-divider"></div>
       <p class="teachers-intro">Məktəbimizin 108-dən çox müəllimi yüksək ixtisaslı mütəxəssislərdən ibarətdir. Hər biri
         öz sahəsinin dərin bilicisi olan müəllim heyətimiz şagirdlərimizin hərtərəfli inkişafını təmin edir.</p>
-
       <div class="teachers-grid">
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">Rəhimova Aytən</div>
           <div class="teacher-subject">Riyaziyyat</div>
@@ -1582,13 +1545,10 @@
         </div>
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">Məmmədov Elçin</div>
           <div class="teacher-subject">Fizika</div>
@@ -1596,13 +1556,10 @@
         </div>
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">Həsənova Gülnar</div>
           <div class="teacher-subject">Azərbaycan dili</div>
@@ -1610,13 +1567,10 @@
         </div>
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">İsmayılov Tərlan</div>
           <div class="teacher-subject">Kimya</div>
@@ -1624,13 +1578,10 @@
         </div>
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">Nəcəfova Sevinc</div>
           <div class="teacher-subject">Biologiya</div>
@@ -1638,13 +1589,10 @@
         </div>
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">Quliyev Nicat</div>
           <div class="teacher-subject">Tarix</div>
@@ -1652,13 +1600,10 @@
         </div>
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">Əliyeva Könül</div>
           <div class="teacher-subject">İngilis dili</div>
@@ -1666,20 +1611,16 @@
         </div>
         <div class="teacher-card">
           <div class="teacher-photo-wrap">
-            <div class="teacher-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none">
+            <div class="teacher-photo-placeholder"><svg viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="4" stroke="#c8a84b" stroke-width="1.5" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c8a84b" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <span>Şəkil əlavə et</span>
-            </div>
+              </svg><span>Şəkil əlavə et</span></div>
           </div>
           <div class="teacher-name">Babayev Samir</div>
           <div class="teacher-subject">İnformatika</div>
           <div class="teacher-exp">8+ il · I kateqoriya</div>
         </div>
       </div>
-
       <div class="teachers-features">
         <div class="tf-item">
           <div class="tf-icon">🎓</div>
@@ -1706,16 +1647,12 @@
       <p class="section-label">Şagirdlər</p>
       <h2 class="section-title">Siniflərimiz və şagirdlərimiz</h2>
       <div class="section-divider"></div>
-
-      <!-- Grade tabs -->
       <div class="grade-tabs">
-        <button class="grade-tab active" onclick="showGrade('g10')">X Sinif</button>
-        <button class="grade-tab" onclick="showGrade('g11')">XI Sinif</button>
-        <button class="grade-tab" onclick="showGrade('g9')">IX Sinif</button>
-        <button class="grade-tab" onclick="showGrade('g8')">VIII Sinif</button>
+        <button class="grade-tab active" onclick="showGrade('g10', event)">X Sinif</button>
+        <button class="grade-tab" onclick="showGrade('g11', event)">XI Sinif</button>
+        <button class="grade-tab" onclick="showGrade('g9', event)">IX Sinif</button>
+        <button class="grade-tab" onclick="showGrade('g8', event)">VIII Sinif</button>
       </div>
-
-      <!-- Grade 10 -->
       <div class="grade-panel active" id="g10">
         <div class="classes-grid">
           <div class="class-block">
@@ -1810,8 +1747,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Grade 11 -->
       <div class="grade-panel" id="g11">
         <div class="classes-grid">
           <div class="class-block">
@@ -1876,8 +1811,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Grade 9 -->
       <div class="grade-panel" id="g9">
         <div class="classes-grid">
           <div class="class-block">
@@ -1942,8 +1875,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Grade 8 -->
       <div class="grade-panel" id="g8">
         <div class="classes-grid">
           <div class="class-block">
@@ -1993,12 +1924,10 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-
-
+  <!-- MAP -->
   <section class="map-section" id="map">
     <div class="container">
       <p class="section-label">Məkan</p>
@@ -2006,7 +1935,7 @@
       <div class="section-divider"></div>
       <div class="map-top-bar">
         <div class="map-address-info">
-          <span>📍</span>
+          <span><i class="bi bi-geo-alt"></i></span>
           <span>Bakı, Xətai rayonu, Y. Səfərov küçəsi 7 — 27 Nömrəli Tam Orta Məktəb</span>
         </div>
         <a href="https://maps.google.com/?q=27+Sayli+tam+orta+mekteb+Baki" target="_blank" class="btn-map">Google
@@ -2022,18 +1951,14 @@
     </div>
   </section>
 
+  <!-- FOOTER / CONTACT -->
   <footer id="contact">
     <div class="footer-main">
       <div class="footer-container">
-
-        <!-- Col 1: Branding -->
         <div class="footer-col footer-brand">
           <div class="footer-logo">
             <div class="footer-logo-badge">27</div>
-            <div>
-              <strong>Məktəb №27</strong>
-              <span>1959-cu ildən fəaliyyətdə</span>
-            </div>
+            <div><strong>Məktəb №27</strong><span>1959-cu ildən fəaliyyətdə</span></div>
           </div>
           <p class="footer-desc">Bakı şəhərinin Xətai rayonunda yerləşən 27 Nömrəli Tam Orta Məktəb yarım əsrdən artıq
             keyfiyyətli təhsil ocağıdır.</p>
@@ -2068,8 +1993,6 @@
             </a>
           </div>
         </div>
-
-        <!-- Col 2: Quick links -->
         <div class="footer-col">
           <h4 class="footer-heading">Sürətli Keçid</h4>
           <ul class="footer-links">
@@ -2081,8 +2004,6 @@
             <li><a href="#map">Ünvan</a></li>
           </ul>
         </div>
-
-        <!-- Col 3: Contact -->
         <div class="footer-col">
           <h4 class="footer-heading">Bizimlə Əlaqə</h4>
           <div class="footer-contact-items">
@@ -2091,18 +2012,14 @@
                 <path
                   d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
               </svg>
-              <div>
-                <span class="fci-label">Telefon</span>
-                <a href="tel:+994124902120">(012) 490 21 20</a>
-              </div>
+              <div><span class="fci-label">Telefon</span><a href="tel:+994124902120">(012) 490 21 20</a></div>
             </div>
             <div class="footer-contact-item">
               <svg viewBox="0 0 24 24" fill="#c8a84b" width="16" height="16">
                 <path
                   d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
               </svg>
-              <div>
-                <span class="fci-label">Ünvan</span>
+              <div><span class="fci-label">Ünvan</span>
                 <p>Bakı, Xətai rayonu,<br>Y. Səfərov küçəsi 7</p>
               </div>
             </div>
@@ -2110,10 +2027,8 @@
               <svg viewBox="0 0 24 24" fill="#c8a84b" width="16" height="16">
                 <path d="M17 2h-2a3 3 0 0 0-3 3v2H8v4h4v8h4v-8h3l1-4h-4V5a1 1 0 0 1 1-1h2z" />
               </svg>
-              <div>
-                <span class="fci-label">Facebook</span>
-                <a href="https://www.facebook.com/27nomrelitamortamekteb/" target="_blank">27nomrelitamortamekteb</a>
-              </div>
+              <div><span class="fci-label">Facebook</span><a href="https://www.facebook.com/27nomrelitamortamekteb/"
+                  target="_blank">27nomrelitamortamekteb</a></div>
             </div>
             <div class="footer-contact-item">
               <svg viewBox="0 0 24 24" width="16" height="16">
@@ -2127,11 +2042,9 @@
                 <circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8" />
                 <circle cx="17.5" cy="6.5" r="1.2" fill="white" />
               </svg>
-              <div>
-                <span class="fci-label">Instagram</span>
-                <a href="https://www.instagram.com/27_nomreli_tam_orta_mekteb/"
-                  target="_blank">27_nomreli_tam_orta_mekteb</a>
-              </div>
+              <div><span class="fci-label">Instagram</span><a
+                  href="https://www.instagram.com/27_nomreli_tam_orta_mekteb/"
+                  target="_blank">27_nomreli_tam_orta_mekteb</a></div>
             </div>
             <div class="footer-contact-item">
               <svg viewBox="0 0 24 24" width="16" height="16">
@@ -2139,17 +2052,16 @@
                   d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.8 5 12 5 12 5s-4.8 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.3.8C6.8 19 12 19 12 19s4.8 0 7-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.7 14.5V9l5.4 2.8-5.4 2.7z"
                   fill="#FF0000" />
               </svg>
-              <div>
-                <span class="fci-label">YouTube</span>
-                <a href="https://www.youtube.com/@xtairayonu27nomrlitamortam50" target="_blank">YouTube Kanalımız</a>
-              </div>
+              <div><span class="fci-label">YouTube</span>
+                <a href="https://www.youtube.com/@xtairayonu27nomrlitamortam50"
+                  target="_blank">YouTube Kanalımız</a>
+                
+                </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-
     <div class="footer-bottom">
       <p>© 2026 · <strong>27 Nömrəli Tam Orta Məktəb</strong> · Bakı, Xətai Rayonu</p>
       <p>Design by <strong>MERS</strong> © 2026</p>
@@ -2158,11 +2070,11 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    function showGrade(id) {
+    function showGrade(id, e) {
       document.querySelectorAll('.grade-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.grade-tab').forEach(t => t.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-      event.currentTarget.classList.add('active');
+      e.currentTarget.classList.add('active');
     }
   </script>
 </body>
